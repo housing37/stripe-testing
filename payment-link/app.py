@@ -6,6 +6,7 @@ cStrDivider_1 = '#--------------------------------------------------------------
 print('', cStrDivider, f'GO _ {__filename} -> starting IMPORTs & declaring globals', cStrDivider, sep='\n')
 
 # testing stripe payment link intgration w/ simple webhook (no-code)
+#  ref: https://github.com/stripe/stripe-cli/wiki/installation
 #  ref: https://docs.stripe.com/no-code/payment-links
 #  ref: https://dashboard.stripe.com/payment-links/create/customer-chooses-pricing
 #  ref: https://dashboard.stripe.com/test/webhooks/create?endpoint_location=hosted
@@ -83,16 +84,25 @@ READ_ME = f'''
     *DESCRIPTION*
         stripe payment-link integration testing
 
-    *INPUT PARAMS*
-        nil
+    *INSTALL* (stripe CLI _ MacOSx)
+        $ $ brew install stripe/stripe-cli/stripe
+
+    *INSTALL* (stripe CLI _ linux/ubuntu)
+        $ sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 379CE192D401AB61
+        $ echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" | sudo tee -a /etc/apt/sources.list
+        $ sudo apt-get update
+        $ sudo apt-get install stripe
         
-    *RUN*
+    *RUN* (python direct)
         $ python3.10 {__filename}
 
-    *MANUALY FLASK RUN*
+    *RUN* (flask embedded)
         $ cd .../{os.path.basename(os.getcwd())}
         $ export FLASK_APP={__filename}
         $ python3.10 -m flask run --port={PORT}
+
+    *RUN* (input params)
+        nil
 {cStrDivider_1}
 '''
 
